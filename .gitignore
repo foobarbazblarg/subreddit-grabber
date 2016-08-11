@@ -1,0 +1,13 @@
+reddit-oauth-credentials.cfg
+reddit-password-credentials.cfg
+problematic-users.cfg
+interesting-users.cfg
+**/.idea
+**/.vscode
+# **/update-google-chart.py
+**/update-google-chart.py.BACKUP
+**/google-spreadsheet-oauth-hello-world.py
+**/google-oauth-credentials.json
+**/*.pyc
+praw/*
+push-to-github.sh
