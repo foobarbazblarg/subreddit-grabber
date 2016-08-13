@@ -85,7 +85,7 @@ def insertRow(connection, title='', authorName='', authorCreationDate=None, auth
     cursor.close()
 
 def printAndSaveToTextFile(aString):
-    print aString
+    # print aString
     with open(textFileName, "a") as f:
         f.write(aString + '\n')
 
@@ -109,12 +109,19 @@ reddit = praw.Reddit(user_agent='subreddit-grabber')
 
 # By using get_new(limit=None), a max of 1000 submissions are answered.  Grrr...
 # for submission in reddit.get_subreddit(subredditName).get_new(limit=None):
+i = 0
 for submission in praw.helpers.submissions_between(reddit, subredditName, lowest_timestamp=None, highest_timestamp=None, newest_first=True):
     try:
+        i = i + 1
+        print i
         if submission.author:
             authorName = submission.author.name.encode('utf-8')
-            authorCreationDate = datetime.datetime.utcfromtimestamp(submission.author.created_utc)
-            authorRedditAgeAtTimeOfPosting = int(submission.created_utc - submission.author.created_utc)
+            try:
+                authorCreationDate = datetime.datetime.utcfromtimestamp(submission.author.created_utc)
+                authorRedditAgeAtTimeOfPosting = int(submission.created_utc - submission.author.created_utc)
+            except AttributeError:
+                authorCreationDate = datetime.datetime.now()
+                authorRedditAgeAtTimeOfPosting = 0
         else:
             authorName = '[deleted]'
             authorCreationDate = datetime.datetime.now()
