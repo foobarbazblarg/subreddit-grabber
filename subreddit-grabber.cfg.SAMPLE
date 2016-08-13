@@ -1,0 +1,6 @@
+[subreddit-grabber]
+subredditName = opensource
+mysqlUser = someUser
+mysqlPassword = somePassword
+mysqlDatabaseName = opensource
+textFileName = opensource.txt

@@ -1,7 +1,6 @@
-reddit-oauth-credentials.cfg
-reddit-password-credentials.cfg
-problematic-users.cfg
-interesting-users.cfg
+rsyncazure.sh
+subreddit-grabber.cfg
+*.deb
 **/.idea
 **/.vscode
 # **/update-google-chart.py
